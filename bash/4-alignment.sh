@@ -24,6 +24,6 @@ do
 	echo $out
   
   # BWA
-	/nobackup/leedsomics_tools/bwa-0.7.17/bwa mem -P -M -t 8 GRCh38.p13.genome.fa.gz $r1 $r2 > $out
+	/nobackup/leedsomics_tools/bwa-0.7.17/bwa mem -P -M -t 8 GRCh38.p13.genome.fa.gz $r1 $r2 | /nobackup/leedsomics_tools/samtools-1.9/samtools sort -m 5G -o $out 
 
 done
