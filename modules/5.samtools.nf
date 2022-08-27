@@ -19,8 +19,6 @@ process SORT {
     bamName = bamRead.toString().split("\\.")[0]
 
     """
-    mkdir -p ${params.OUT_DIR}/05_SAMTOOLS/
-    mkdir -p ${params.OUT_DIR}/05_SAMTOOLS/${bamName}
     samtools sort -m 5G -o ${bamName}.sort.bam ${bamRead}
     """
 }
@@ -53,14 +51,14 @@ process VIEW {
     file(bamRead)
 
     output:
-    file("*.sam")
+    file("*.bam")
 
     script:
     
-    bamName = bamRead.toString().split("\\.")[0]
+    bamName = bamRead.toString().split("-")[0]
 
     """
-    samtools view -h ${bamRead} > ${bamName}.sam
+    samtools view -F 1804 -q ${params.mapq_thresh} -b ${bamRead} -o ${bamName}.view.bam
     """
 
 }
@@ -106,3 +104,4 @@ process FLAGSTAT {
     """
 
 }
+
