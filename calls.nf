@@ -54,8 +54,11 @@ workflow CHROM_CALL {
 
 workflow {
 
-      
-
+	if (!params.peakCall) {
+                CHROM_CALL()
+        } else {
+                PEAK_CALL()
+        }
 
 }
 
