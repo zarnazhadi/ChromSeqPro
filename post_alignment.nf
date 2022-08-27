@@ -1,3 +1,9 @@
+/*
+#==============================================
+Import processes
+#==============================================
+*/
+
 include { SORT; VIEW; FLAGSTAT } from './modules/5-samtools.nf'
 include { PICARD               } from './modules/6-picard.nf'
 
