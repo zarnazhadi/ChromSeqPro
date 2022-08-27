@@ -4,7 +4,7 @@ include { REGION_COUNTS; PROMOTER_SIGNAL } from '.modules/7-chrompro.nf'
 workflow PEAK_CALL {
 
 
-	      recurrent_list = "../bash/aligned/mem/{EZH2,H3K4me3,H3K27me3}_R-viewed.sort.bam"
+	recurrent_list = "../bash/aligned/mem/{EZH2,H3K4me3,H3K27me3}_R-viewed.sort.bam"
         primary_list = "../bash/aligned/mem/EZH2_P-viewed.sort.bam"
 
         Channel
@@ -47,8 +47,6 @@ workflow CHROM_CALL {
     	| view
 	
       */
-	       
-	
 	      PROMOTER_SIGNAL(REGION_COUNTS.out)
 }
 
