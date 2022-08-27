@@ -1,3 +1,17 @@
+/*
+#==============================================
+params
+#==============================================
+*/
+
+params.peakCall = false
+
+#==============================================
+Import processes
+#==============================================
+*/
+
+
 include { MACS2 ; MACS2 as MACS3 } from './modules/7-macs2.nf'
 include { REGION_COUNTS; PROMOTER_SIGNAL } from '.modules/7-chrompro.nf'
 
