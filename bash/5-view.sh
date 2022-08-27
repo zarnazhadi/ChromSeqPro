@@ -16,13 +16,8 @@ do
 	
 	out=$( echo ${ALIGNED_DIR}/${fileid}.sorted.bam) # new file name after sorting
 	echo $out
-	flag=$( echo ${FLAGSTAT_DIR}/${fileid}.txt)
-	echo $flag
 	
-	# sort
-	/nobackup/leedsomics_tools/samtools-1.9/samtools sort -m 5G -o $out $bam
-	
-	# flagstat
-	/nobackup/leedsomics_tools/samtools-1.9/samtools flagstat $out > $flag
+	# view
+	/nobackup/leedsomics_tools/samtools-1.9/samtools sort -F 1804 -q 30 -b $bam -o $out
 
 done
